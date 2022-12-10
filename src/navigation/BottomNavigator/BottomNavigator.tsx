@@ -12,6 +12,7 @@ export function BottomNavigator() {
       initialRouteName="Feed"
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
+        headerShown:false
       }}
     >
       <Tab.Screen
@@ -32,7 +33,7 @@ export function BottomNavigator() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bell" color={color} size={size} />
           ),
-          tabBarBadge: 3,
+          // tabBarBadge: 3,
         }}
       />
       <Tab.Screen
