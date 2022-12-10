@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, Text, View,Button,Image, Dimensions } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { BottomNavigator } from './src/navigation/BottomNavigator';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,33 +24,34 @@ export default function App() {
       } finally {
         // Tell the application to render
         setAppIsReady(true);
+        await SplashScreen.hideAsync();
+
       }
     }
 
     prepare();
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
+ 
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (appIsReady) {
   
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [appIsReady]);
 
   if (!appIsReady) {
     return null;
   }
   
   return (
-    <View style={styles.animationContainer}onLayout={onLayoutRootView} >
-      <View        style={{alignSelf:'center',alignItems:'center',justifyContent:'center'}}
->
+    <NavigationContainer>
+     {/* <View onLayout={onLayoutRootView} > */}
+   
+    <BottomNavigator />
 
-      <View style={styles.buttonContainer}>
-      </View>
-      </View>
-
-    </View>
+    {/* </View>  */}
+    </NavigationContainer>
   );
 }
 
