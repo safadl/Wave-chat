@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Text, View,Button,Image, Dimensions } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomNavigator } from './src/navigation/BottomNavigator';
@@ -45,6 +45,8 @@ export default function App() {
   }
   
   return (
+    <>
+    <StatusBar barStyle="dark-content" />
     <NavigationContainer>
      {/* <View onLayout={onLayoutRootView} > */}
    
@@ -52,6 +54,7 @@ export default function App() {
 
     {/* </View>  */}
     </NavigationContainer>
+    </>
   );
 }
 
